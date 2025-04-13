@@ -29,9 +29,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 # Install Node.js and n8n dependencies
-RUN npm install -g n8n
+RUN npm install -g n8n puppeteer
 # Install Puppeteer and other dependencies
-RUN npm install puppeteer
+# RUN npm install puppeteer
 # Install Puppeteer under /node_modules so it's available system-wide
 COPY package.json /app/
 COPY . /app/
