@@ -21,6 +21,8 @@ RUN cd /app && npm install
 # Set the Chromium environment variables
 ENV XDG_CONFIG_HOME=/tmp/.chromium
 ENV XDG_CACHE_HOME=/tmp/.chromium
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+ENV PUPPETEER_EXECUTABLE_PATH="/usr/bin/chromium"
 
 # Install browsers (puppeteer post-installation script)
 RUN node -e "require('puppeteer').default.install()"
