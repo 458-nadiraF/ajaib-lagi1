@@ -9,7 +9,8 @@ WORKDIR /app
 
 # Install Node.js and n8n dependencies
 RUN npm install -g n8n
-
+# Install Puppeteer and other dependencies
+RUN npm install puppeteer
 # Install Puppeteer under /node_modules so it's available system-wide
 COPY package.json /app/
 COPY . /app/
