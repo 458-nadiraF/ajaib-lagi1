@@ -1,0 +1,15 @@
+{
+  "name": "n8n-puppeteer",
+  "version": "1.0.0",
+  "description": "n8n workflow with Puppeteer integration",
+  "main": "index.js",
+  "dependencies": {
+    "n8n": "^0.147.0",
+    "puppeteer": "^19.0.0"
+  },
+  "scripts": {
+    "start": "n8n"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
