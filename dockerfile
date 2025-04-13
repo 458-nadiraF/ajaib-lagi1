@@ -6,7 +6,28 @@ USER root
 
 # Set the working directory to /app
 WORKDIR /app
-
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  fonts-liberation \
+  libasound2 \
+  libatk-bridge2.0-0 \
+  libatk1.0-0 \
+  libcups2 \
+  libdrm2 \
+  libgbm1 \
+  libgtk-3-0 \
+  libnspr4 \
+  libnss3 \
+  libx11-xcb1 \
+  libxcomposite1 \
+  libxdamage1 \
+  libxrandr2 \
+  xdg-utils \
+  libu2f-udev \
+  libxshmfence1 \
+  libglu1-mesa \
+  chromium \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 # Install Node.js and n8n dependencies
 RUN npm install -g n8n
 # Install Puppeteer and other dependencies
@@ -25,7 +46,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH="/usr/bin/chromium"
 
 # Install browsers (puppeteer post-installation script)
-RUN node -e "require('puppeteer').default.install()"
+# RUN node -e "require('puppeteer').default.install()"
 
 # Expose the n8n port (5678 by default)
 EXPOSE 5678
