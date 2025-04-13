@@ -23,7 +23,7 @@ ENV XDG_CONFIG_HOME=/tmp/.chromium
 ENV XDG_CACHE_HOME=/tmp/.chromium
 
 # Install browsers (puppeteer post-installation script)
-RUN npx puppeteer browsers install
+RUN node -e "require('puppeteer').default.install()"
 
 # Expose the n8n port (5678 by default)
 EXPOSE 5678
